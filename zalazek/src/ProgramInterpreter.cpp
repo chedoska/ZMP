@@ -3,6 +3,9 @@
 
 #include <memory>
 #include <vector>
+#include <cstdio> 
+
+#define MAX_CHAR_COUNT 1000
 
 ProgramInterpreter::ProgramInterpreter()
 {
@@ -21,10 +24,18 @@ ProgramInterpreter::ProgramInterpreter()
 
 bool ProgramInterpreter::ExecProgram(const char* fileName)
 {
-  std::fstream cmdFile(fileName);
+  std::string Cmd4Preproc = "cpp -P ";
+  char Line[MAX_CHAR_COUNT];
   std::stringstream textStream;
-  textStream << cmdFile.rdbuf();
-  textStream = Preprocessor::RunPreprocessor(textStream);
+
+  Cmd4Preproc += fileName;
+  FILE *pProc = popen(Cmd4Preproc.c_str(),"r");
+
+  if(!pProc) return false;
+
+  while(std::fgets(Line, MAX_CHAR_COUNT, pProc)){
+    textStream << Line;
+  }
 
   std::cout << textStream.str();
 
@@ -40,9 +51,15 @@ bool ProgramInterpreter::ExecProgram(const char* fileName)
         pCmd->PrintCmd();
         std::cout << "\n";
       }
-      else
+      else{
         std::cout << "Błedne parametry do polecenia: "
-         << " [" << LineStream.str() << " ]" << "\n\n";
+         << " [\"" << LineStream.str() << "\" ]" << "\n\n";
+         return false;
+      }
+    }
+    else{
+      std::cout << "Nie znane polecenie: \"" << CmdName << "\"\n\n";
+      return false;
     }
   }
   return true;

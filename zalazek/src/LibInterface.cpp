@@ -4,7 +4,7 @@
 #include <cassert>
 
 LibInterface::LibInterface(const std::string& libName)
-    :_Opened(false), _CmdName("")
+    :_CmdName(""), _Opened(false)
 {
     LibHandler = dlopen(libName.c_str(), RTLD_LAZY);
 
