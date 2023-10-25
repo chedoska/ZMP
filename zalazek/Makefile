@@ -22,23 +22,18 @@ LDFLAGS=-Wall
 
 
 
-interp: obj/main.o obj/ProgramInterpreter.o obj/LibInterface.o obj/Preprocessor.o
-	g++ ${LDFLAGS} -o interp  obj/main.o obj/ProgramInterpreter.o obj/LibInterface.o\
-			obj/Preprocessor.o -ldl
+interp: obj/main.o obj/ProgramInterpreter.o obj/LibInterface.o
+	g++ ${LDFLAGS} -o interp  obj/main.o obj/ProgramInterpreter.o obj/LibInterface.o -ldl
 
 obj/main.o: src/main.cpp inc/AbstractInterp4Command.hh inc/AbstractScene.hh\
             inc/AbstractComChannel.hh inc/ProgramInterpreter.hh inc/LibInterface.hh
 	g++ -c ${CPPFLAGS} -o obj/main.o src/main.cpp
 
-obj/ProgramInterpreter.o: src/ProgramInterpreter.cpp inc/LibInterface.hh inc/ProgramInterpreter.hh\
-			inc/Preprocessor.hh
+obj/ProgramInterpreter.o: src/ProgramInterpreter.cpp inc/LibInterface.hh inc/ProgramInterpreter.hh
 	g++ -c ${CPPFLAGS} -o obj/ProgramInterpreter.o src/ProgramInterpreter.cpp
 
 obj/LibInterface.o: src/LibInterface.cpp inc/AbstractInterp4Command.hh inc/LibInterface.hh
 	g++ -c ${CPPFLAGS} -o obj/LibInterface.o src/LibInterface.cpp
-
-obj/Preprocessor.o: src/Preprocessor.cpp inc/Preprocessor.hh
-	g++ -c ${CPPFLAGS} -o obj/Preprocessor.o src/Preprocessor.cpp
 
 doc:
 	cd dox; make
