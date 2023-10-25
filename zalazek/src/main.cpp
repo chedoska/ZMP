@@ -11,10 +11,10 @@ int main()
 {
   ProgramInterpreter programInterpreter;
   if(!programInterpreter.ExecProgram("/home/schedosk/Pulpit/opis_dzialan.cmd")){
-    std::cout << "BŁĄD: Koniec programu!\n\n";
+    std::cout << "BŁĄD: Koniec programu!\n\n\n";
   }
   else{
-    std::cout << "Program zadziałał poprawnie!\n\n";
+    std::cout << "Program zadziałał poprawnie!\n\n\n";
   }
 
   return 1;
