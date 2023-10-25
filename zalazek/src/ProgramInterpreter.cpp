@@ -36,7 +36,7 @@ bool ProgramInterpreter::ExecProgram(const char* fileName)
     textStream << Line;
   }
 
-  std::cout << textStream.str();
+  std::cout << textStream.str() << "\n";
 
   std::string LineString;
   while(std::getline(textStream, LineString)){

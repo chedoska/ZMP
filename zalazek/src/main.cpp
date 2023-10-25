@@ -10,9 +10,11 @@ using namespace std;
 int main()
 {
   ProgramInterpreter programInterpreter;
-  if(!programInterpreter.ExecProgram("/home/schedosk/Pulpit/opis_dzialan.cmd"))
-  {
-    std::cout << "BŁĄD: Koniec programu\n\n";
+  if(!programInterpreter.ExecProgram("/home/schedosk/Pulpit/opis_dzialan.cmd")){
+    std::cout << "BŁĄD: Koniec programu!\n\n";
+  }
+  else{
+    std::cout << "Program zadziałał poprawnie!\n\n";
   }
 
   return 1;
