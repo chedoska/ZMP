@@ -10,7 +10,7 @@ using namespace std;
 
 int main()
 {
-  Configuration   Config;
+  Configuration Config;
    if (!ReadFile("config/config.xml",Config)) return 1;
 
   ProgramInterpreter programInterpreter;

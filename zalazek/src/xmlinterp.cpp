@@ -5,10 +5,7 @@
 #include <cstdlib>
 #include <iostream>
 
-
-
 using namespace std;
-
 
 /*!
  * Konstruktor klasy. Tutaj należy zainicjalizować wszystkie
@@ -16,31 +13,18 @@ using namespace std;
  */
 XMLInterp4Config::XMLInterp4Config(Configuration &rConfig)
 {
+  m_rConfig = rConfig;
 }
 
-
-/*!
- * Metoda wywoływana jest bezpośrednio przed rozpoczęciem
- * przetwarzana dokumentu XML.
- */
 void XMLInterp4Config::startDocument()
 {
   cout << "*** Rozpoczecie przetwarzania dokumentu XML." << endl;
 }
 
-
-/*!
- * Metoda wywoływana jest bezpośrednio po zakończeniu
- * przetwarzana dokumentu XML.
- */
 void XMLInterp4Config::endDocument()
 {
   cout << "=== Koniec przetwarzania dokumentu XML." << endl;
 }
-
-
-
-
 
 /*!
  * Analizuje atrybuty elementu XML \p "Lib" i odpowiednio je interpretuje.
@@ -70,7 +54,6 @@ void XMLInterp4Config::ProcessLibAttrs(const xercesc::Attributes  &rAttrs)
  xercesc::XMLString::release(&sParamName);
  xercesc::XMLString::release(&sLibName);
 }
-
 
 /*!
  * Analizuje atrybuty. Sprawdza czy ich nazwy są poprawne. Jeśli tak,
@@ -143,12 +126,6 @@ void XMLInterp4Config::ProcessCubeAttrs(const xercesc::Attributes  &rAttrs)
  xercesc::XMLString::release(&sValue_RGB);
 }
 
-
-
-
-
-
-
 /*!
  * Wykonuje operacje związane z wystąpieniem danego elementu XML.
  * W przypadku elementu \p "Action" będzie to utworzenie obiektu
@@ -170,9 +147,6 @@ void XMLInterp4Config::WhenStartElement( const std::string           &rElemName,
     ProcessCubeAttrs(rAttrs);  return;
   }
 }
-
-
-
 
 /*!
  * Metoda jest wywoływana po napotkaniu nowego elementu XML, np.
@@ -208,12 +182,8 @@ void XMLInterp4Config::startElement(  const   XMLCh* const            pURI,
   cout << "+++ Poczatek elementu: "<< sElemName << endl;
 
   WhenStartElement(sElemName, rAttrs);
-
   xercesc::XMLString::release(&sElemName);
 }
-
-
-
 
 /*!
  * Metoda zostaje wywołana w momencie zakończenia danego elementu
@@ -255,9 +225,6 @@ void XMLInterp4Config::endElement(  const   XMLCh* const    pURI,
 
    xercesc::XMLString::release(&sElemName);
 }
-
-
-
 
 /*!
  * Metoda wywoływana jest, gdy napotkany zostanie błąd fatalny,
