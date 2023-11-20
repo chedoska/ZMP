@@ -10,7 +10,7 @@ using namespace std;
 int main()
 {
   ProgramInterpreter programInterpreter;
-  if(!programInterpreter.ExecProgram("/home/schedosk/Pulpit/opis_dzialan.cmd")){
+  if(!programInterpreter.ExecProgram("/home/chedoska/Pulpit/opis_dzialan.cmd")){
     std::cout << "BŁĄD: Koniec programu!\n\n\n";
   }
   else{

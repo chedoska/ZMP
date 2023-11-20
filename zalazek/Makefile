@@ -35,6 +35,9 @@ obj/ProgramInterpreter.o: src/ProgramInterpreter.cpp inc/LibInterface.hh inc/Pro
 obj/LibInterface.o: src/LibInterface.cpp inc/AbstractInterp4Command.hh inc/LibInterface.hh
 	g++ -c ${CPPFLAGS} -o obj/LibInterface.o src/LibInterface.cpp
 
+obj/xmlinterp.o: src/xmlinterp.cpp inc/xmlinterp.hh
+	g++ -c ${CPPFLAGS} -o obj/xmlinterp.o src/xmlinterp.cpp
+
 doc:
 	cd dox; make
 
