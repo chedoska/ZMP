@@ -69,11 +69,16 @@ void XMLInterp4Config::ProcessCubeAttrs(const xercesc::Attributes  &rAttrs)
       exit(1);
  }
 
- /*
-  *  Tutaj pobierane sa nazwy pierwszego i drugiego atrybuty.
-  *  Sprawdzamy, czy na pewno jest to Name i Value.
-  */
+ for(int i = 0; i < rAttrs.getLength(); i++)
+ {
+   char* sName_Name = xercesc::XMLString::transcode(rAttrs.getQName(i));
+   char* sValue_Name = xercesc::XMLString::transcode(rAttrs.getValue(i));
+   std::cout << " Atrybuty:" << std::endl
+      << "     " << sName_Name << " = \"" << sValue_Name << "\"" << std::endl;
+ }
 
+
+/*
  char* sName_Name = xercesc::XMLString::transcode(rAttrs.getQName(0));
  char* sName_Scale = xercesc::XMLString::transcode(rAttrs.getQName(1));
  char* sName_RGB = xercesc::XMLString::transcode(rAttrs.getQName(2));
@@ -82,8 +87,9 @@ void XMLInterp4Config::ProcessCubeAttrs(const xercesc::Attributes  &rAttrs)
  char* sValue_Name    = xercesc::XMLString::transcode(rAttrs.getValue(Index));
  char* sValue_Scale = xercesc::XMLString::transcode(rAttrs.getValue(1));
  char* sValue_RGB     = xercesc::XMLString::transcode(rAttrs.getValue(2));
+*/
 
-
+/*
  //-----------------------------------------------------------------------------
  // Wyświetlenie nazw atrybutów i ich "wartości"
  //
@@ -125,7 +131,7 @@ void XMLInterp4Config::ProcessCubeAttrs(const xercesc::Attributes  &rAttrs)
  xercesc::XMLString::release(&sName_RGB);
  xercesc::XMLString::release(&sValue_Name);
  xercesc::XMLString::release(&sValue_Scale);
- xercesc::XMLString::release(&sValue_RGB);
+ xercesc::XMLString::release(&sValue_RGB);*/
 }
 
 /*!
