@@ -50,7 +50,8 @@ void XMLInterp4Config::ProcessLibAttrs(const xercesc::Attributes  &rAttrs)
 
  cout << "  Nazwa biblioteki: " << sLibName << endl;
 
- // Tu trzeba wpisać własny kod ...
+ std::string libNameString = sLibName;
+ m_rConfig.addLibName(libNameString);
 
  xercesc::XMLString::release(&sParamName);
  xercesc::XMLString::release(&sLibName);
