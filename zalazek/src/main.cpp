@@ -5,11 +5,20 @@
 #include "AbstractInterp4Command.hh"
 #include "ProgramInterpreter.hh"
 #include "xmlParser.hh"
+#include "Vector3D.hh"
 
 using namespace std;
 
 int main()
 {
+  Vector3D vec, df;
+  vec[0] = 13;
+  df[0] = 12;
+  df[1] = 5;
+  vec = vec + df;
+  std::cout << vec << "\n";
+
+
   Configuration Config;
    if (!ReadFile("config/config.xml",Config)) return 1;
 

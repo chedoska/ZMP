@@ -4,6 +4,10 @@
 #include <list>
 #include <string>
 
+struct CubeConfiguration {
+  
+}
+
 class Configuration {
 public:
   void addLibName(std::string libName) {m_libsNames.push_back(libName);}
