@@ -12,8 +12,9 @@ using namespace std;
  * dodatkowe pola.
  */
 XMLInterp4Config::XMLInterp4Config(Configuration &rConfig)
+:m_rConfig(rConfig)
 {
-  m_rConfig = rConfig;
+  
 }
 
 void XMLInterp4Config::startDocument()
