@@ -14,7 +14,7 @@ int main()
    if (!ReadFile("config/config.xml",Config)) return 1;
 
 
-    std::cout << "LISTA BIBLIOTEK:\n"
+    std::cout << "LISTA BIBLIOTEK:\n";
     std::list<std::string> lista = Config.getLibsNamesList();
     for(std::string name : lista) std::cout << name << "\n";
 
