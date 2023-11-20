@@ -7,8 +7,8 @@ bool ReadFile(const char* sFileName, Configuration &rConfig)
    }
    catch (const XMLException& toCatch) {
             char* message = XMLString::transcode(toCatch.getMessage());
-            cerr << "Error during initialization! :\n";
-            cerr << "Exception message is: \n"
+            std::cerr << "Error during initialization! :\n";
+            std::cerr << "Exception message is: \n"
                  << message << "\n";
             XMLString::release(&message);
             return 1;
@@ -32,9 +32,9 @@ bool ReadFile(const char* sFileName, Configuration &rConfig)
      
      if (!pParser->loadGrammar("config/config.xsd",
                               xercesc::Grammar::SchemaGrammarType,true)) {
-       cerr << "!!! Plik grammar/actions.xsd, '" << endl
+       std::cerr << "!!! Plik grammar/actions.xsd, '" << std::endl
             << "!!! ktory zawiera opis gramatyki, nie moze zostac wczytany."
-            << endl;
+            << std::endl;
        return false;
      }
      pParser->setFeature(XMLUni::fgXercesUseCachedGrammarInParse,true);
@@ -42,7 +42,7 @@ bool ReadFile(const char* sFileName, Configuration &rConfig)
    }
    catch (const XMLException& Exception) {
             char* sMessage = XMLString::transcode(Exception.getMessage());
-            cerr << "Informacja o wyjatku: \n"
+            std::cerr << "Informacja o wyjatku: \n"
                  << "   " << sMessage << "\n";
             XMLString::release(&sMessage);
             return false;
@@ -51,19 +51,19 @@ bool ReadFile(const char* sFileName, Configuration &rConfig)
             char* sMessage = XMLString::transcode(Exception.getMessage());
             char* sSystemId = xercesc::XMLString::transcode(Exception.getSystemId());
 
-            cerr << "Blad! " << endl
-                 << "    Plik:  " << sSystemId << endl
-                 << "   Linia: " << Exception.getLineNumber() << endl
-                 << " Kolumna: " << Exception.getColumnNumber() << endl
+            std::cerr << "Blad! " << std::endl
+                 << "    Plik:  " << sSystemId << std::endl
+                 << "   Linia: " << Exception.getLineNumber() << std::endl
+                 << " Kolumna: " << Exception.getColumnNumber() << std::endl
                  << " Informacja: " << sMessage 
-                 << endl;
+                 << std::endl;
 
             XMLString::release(&sMessage);
             XMLString::release(&sSystemId);
             return false;
    }
    catch (...) {
-            cout << "Zgloszony zostal nieoczekiwany wyjatek!\n" ;
+            std::cout << "Zgloszony zostal nieoczekiwany wyjatek!\n" ;
             return false;
    }
 
