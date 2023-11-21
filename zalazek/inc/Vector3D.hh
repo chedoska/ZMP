@@ -14,7 +14,7 @@
   */
  typedef geom::Vector<double,3>  Vector3D;
 
- std::istream& operator>>(std::istream &is, cosnt Vector3D &vec)
+ std::istream& operator>>(std::istream &is, Vector3D &vec)
  {
      is >> vec[0] >> vec[1] >> vec[2];
      return is;
