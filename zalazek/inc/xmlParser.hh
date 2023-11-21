@@ -6,7 +6,7 @@
 #include <iostream>
 #include <list>
 
-#include "Configuration.hh"
+//#include "Configuration.hh"
 
 using namespace xercesc;
 
