@@ -24,11 +24,11 @@ LDFLAGS=-Wall
 
 interp: obj/main.o obj/ProgramInterpreter.o obj/LibInterface.o obj/xmlinterp.o obj/xmlParser.o
 	g++ ${LDFLAGS} -o interp  obj/main.o obj/ProgramInterpreter.o obj/LibInterface.o obj/xmlinterp.o\
-	 obj/xmlParser.o -ldl -lxerces-c
+	 obj/xmlParser.o -ldl -lxerces-c 
 
 obj/main.o: src/main.cpp inc/AbstractInterp4Command.hh inc/AbstractScene.hh\
             inc/AbstractComChannel.hh inc/ProgramInterpreter.hh inc/LibInterface.hh
-	g++ -c ${CPPFLAGS} -o obj/main.o src/main.cpp
+	g++ -c ${CPPFLAGS} -o obj/main.o src/main.cpp 
 
 obj/ProgramInterpreter.o: src/ProgramInterpreter.cpp inc/LibInterface.hh inc/ProgramInterpreter.hh
 	g++ -c ${CPPFLAGS} -o obj/ProgramInterpreter.o src/ProgramInterpreter.cpp
