@@ -83,13 +83,13 @@ void XMLInterp4Config::ProcessCubeAttrs(const xercesc::Attributes  &rAttrs)
    else if (std::string(sName) == "Scale"){
      IStrm >> cubeConf.Scale;
    }
+
+   xercesc::XMLString::release(&sName);
+   xercesc::XMLString::release(&sValue);
  }
 
  m_rConfig.addCubeConfiguration(cubeConf);
 
- xercesc::XMLString::release(&sName);
- xercesc::XMLString::release(&sValue);
- 
 
  /*char* sName_Name = xercesc::XMLString::transcode(rAttrs.getQName(0));
  if(std::string(sName_Name) == "name"){
