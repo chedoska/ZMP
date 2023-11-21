@@ -22,7 +22,7 @@ public:
     bool OpenConnection();
     int Send(const char *sMesg);
 
-    virtual void Init(int Socket) override;
+    virtual void Init(int Socket);
     virtual int GetSocket() const;
     virtual void LockAccess();
     virtual void UnlockAccess();
