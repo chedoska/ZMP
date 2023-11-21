@@ -69,6 +69,7 @@ bool ProgramInterpreter::Read_XML_Config(const char* fileName)
   for(CubeConfiguration name : lista2) name.printAllParams();
 
   LoadLibraries(conf);
+  LoadCubeConfiguration(conf);
 
   return true;
 }
