@@ -31,6 +31,6 @@ public:
 
 private:
     int Socket4Sending;
-}
+};
 
 #endif
