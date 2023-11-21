@@ -22,10 +22,10 @@ public:
     bool OpenConnection();
     int Send(const char *sMesg);
 
-    void Init(int Socket) override;
-    int GetSocket() const;
-    void LockAccess();
-    void UnlockAccess();
+    virtual void Init(int Socket) override;
+    virtual int GetSocket() const;
+    virtual void LockAccess();
+    virtual void UnlockAccess();
     //std::mutex &UseGuard();
     ~ComChannel();
 
