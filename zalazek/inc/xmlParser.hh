@@ -1,3 +1,6 @@
+#ifndef XMLPARSER_HH
+#define XMLPARSER_HH
+
 #include <xercesc/sax2/SAX2XMLReader.hpp>
 #include <xercesc/sax2/XMLReaderFactory.hpp>
 #include <xercesc/sax2/DefaultHandler.hpp>
@@ -19,3 +22,5 @@ using namespace xercesc;
  * \retval false - w przeciwnym przypadku.
  */
 bool ReadFile(const char* sFileName, Configuration &rConfig);
+
+#endif
