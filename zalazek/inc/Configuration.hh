@@ -5,6 +5,7 @@
 
 #include <list>
 #include <string>
+#include <iostream>
 
 struct CubeConfiguration {
   std::string Name;
@@ -13,6 +14,12 @@ struct CubeConfiguration {
   Vector3D RotXYZ_deg;
   Vector3D Trans_m;
   Vector3D RGB;
+
+  void printAllParams()
+  {
+    std::cout << Name << ": " << Shift << " " << Scale << " " << RotXYZ_deg << " "
+    << Trans_m << " " << RGB << "\n";
+  };
 };
 
 class Configuration {

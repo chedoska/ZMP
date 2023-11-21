@@ -69,17 +69,38 @@ void XMLInterp4Config::ProcessCubeAttrs(const xercesc::Attributes  &rAttrs)
       exit(1);
  }
 
+ CubeConfiguration cubeConf;
+
  for(int i = 0; i < rAttrs.getLength(); i++)
  {
-   char* sName_Name = xercesc::XMLString::transcode(rAttrs.getQName(i));
-   char* sValue_Name = xercesc::XMLString::transcode(rAttrs.getValue(i));
-   std::cout << " Atrybuty:" << std::endl
-      << "     " << sName_Name << " = \"" << sValue_Name << "\"" << std::endl;
+   char* sName = xercesc::XMLString::transcode(rAttrs.getQName(i));
+   char* sValue = xercesc::XMLString::transcode(rAttrs.getValue(i));
+   istringstream IStrm;
+   IStrm.str(sValue);
+   if (std::string(sName) == "Name"){
+     cubeConf.Name = sName; 
+   }
+   else if (std::string(sName) == "Scale"){
+     IStrm >> cubeConf.Scale;
+   }
+ }
+
+ m_rConfig.addCubeConfiguration(cubeConf);
+
+ xercesc::XMLString::release(&sName);
+ xercesc::XMLString::release(&sValue);
+ 
+
+ /*char* sName_Name = xercesc::XMLString::transcode(rAttrs.getQName(0));
+ if(std::string(sName_Name) == "name"){
+   cubeConf.Name = xercesc::XMLString::transcode(rAttrs.getValue(0));
+ }
+ char* sName_Scale = xercesc::XMLString::transcode(rAttrs.getQName(1));
+ if(std::string(sName_Name) == "name"){
+   cubeConf.Name = xercesc::XMLString::transcode(rAttrs.getValue(0));
  }
 
 
-/*
- char* sName_Name = xercesc::XMLString::transcode(rAttrs.getQName(0));
  char* sName_Scale = xercesc::XMLString::transcode(rAttrs.getQName(1));
  char* sName_RGB = xercesc::XMLString::transcode(rAttrs.getQName(2));
 

@@ -27,6 +27,10 @@ int main()
     std::list<std::string> lista = Config.getLibsNamesList();
     for(std::string name : lista) std::cout << name << "\n";
 
+    std::cout << "LISTA CUBE:\n";
+    std::list<CubeConfiguration> lista = Config.getCubeConfigurationsList();
+    for(CubeConfiguration name : lista) name.printAllParams();
+
 
   ProgramInterpreter programInterpreter;
   if(!programInterpreter.ExecProgram("/home/chedoska/Pulpit/opis_dzialan.cmd")){
