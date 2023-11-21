@@ -22,6 +22,7 @@ public:
 
 private:
     void LoadLibraries(Configuration &conf);
+    void LoadCubeConfiguration(Configuration &conf);
 
     LibManager Set4LibInterfaces;
     // Scene...

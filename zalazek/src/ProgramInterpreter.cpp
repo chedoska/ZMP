@@ -9,7 +9,7 @@
 
 ProgramInterpreter::ProgramInterpreter()
 {
-  
+  comChannel.OpenConnection();
 }
 
 bool ProgramInterpreter::ExecProgram(const char* fileName)
@@ -80,5 +80,22 @@ void ProgramInterpreter::LoadLibraries(Configuration &conf)
     std::shared_ptr<LibInterface> libInterface(new LibInterface(DLibName));
     if(libInterface->IsOpen())
       Set4LibInterfaces[libInterface->GetCmdName()] = libInterface;
+  }
+}
+
+void ProgramInterpreter::LoadCubeConfiguration(Configuration &conf)
+{
+  comChannel.Send("Clear\n");
+  std::list<CubeConfiguration> cubeConfList = conf.getCubeConfigurationsList();
+  for(CubeConfiguration cubeConf : cubeConfList)
+  {
+    std::stringstream ss;
+    ss << "AddObj Name=" << cubeConf.Name
+       << " Shift=" << cubeConf.Shift
+       << " Scale=" << cubeConf.Scale
+       << " RotXYZ_deg=" << cubeConf.RotXYZ_deg
+       << " Trans_m=" << cubeConf.Trans_m
+       << " RGB=" << cubeConf.RGB << "\n";
+    comChannel.Send(ss.str());
   }
 }
