@@ -22,7 +22,7 @@ int main()
     for(CubeConfiguration name : lista2) name.printAllParams();
 
 
-  ProgramInterpreter programInterpreter;
+  ProgramInterpreter programInterpreter(Config);
   if(!programInterpreter.ExecProgram("/home/schedosk/Pulpit/opis_dzialan.cmd")){
     std::cout << "BŁĄD: Koniec programu!\n\n\n";
   }
