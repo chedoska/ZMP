@@ -28,8 +28,8 @@ int main()
     for(std::string name : lista) std::cout << name << "\n";
 
     std::cout << "LISTA CUBE:\n";
-    std::list<CubeConfiguration> lista = Config.getCubeConfigurationsList();
-    for(CubeConfiguration name : lista) name.printAllParams();
+    std::list<CubeConfiguration> lista2 = Config.getCubeConfigurationsList();
+    for(CubeConfiguration name : lista2) name.printAllParams();
 
 
   ProgramInterpreter programInterpreter;
