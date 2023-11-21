@@ -5,7 +5,6 @@
 #include "AbstractInterp4Command.hh"
 #include "ProgramInterpreter.hh"
 #include "xmlParser.hh"
-#include "Vector3D.hh"
 
 using namespace std;
 
