@@ -96,6 +96,6 @@ void ProgramInterpreter::LoadCubeConfiguration(Configuration &conf)
        << " RotXYZ_deg=" << cubeConf.RotXYZ_deg
        << " Trans_m=" << cubeConf.Trans_m
        << " RGB=" << cubeConf.RGB << "\n";
-    comChannel.Send(ss.str());
+    comChannel.Send(ss.str().c_str());
   }
 }
