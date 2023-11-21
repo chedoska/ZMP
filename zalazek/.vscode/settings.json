@@ -46,6 +46,12 @@
         "thread": "cpp",
         "typeinfo": "cpp",
         "map": "cpp",
-        "list": "cpp"
+        "list": "cpp",
+        "cstring": "cpp",
+        "functional": "cpp",
+        "iterator": "cpp",
+        "numeric": "cpp",
+        "iomanip": "cpp",
+        "cinttypes": "cpp"
     }
 }

@@ -22,9 +22,9 @@ LDFLAGS=-Wall
 
 
 
-interp: obj/main.o obj/ProgramInterpreter.o obj/LibInterface.o obj/xmlinterp.o obj/xmlParser.o
-	g++ ${LDFLAGS} -o interp  obj/main.o obj/ProgramInterpreter.o obj/LibInterface.o obj/xmlinterp.o\
-	 obj/xmlParser.o -ldl -lxerces-c 
+interp: obj/main.o obj/ProgramInterpreter.o obj/LibInterface.o obj/xmlinterp.o obj/xmlParser.o obj/ComChannel.o
+	g++ ${LDFLAGS} -o interp  obj/main.o obj/ProgramInterpreter.o obj/LibInterface.o obj/ComChannel.o\
+	 obj/xmlinterp.o obj/xmlParser.o -ldl -lxerces-c 
 
 obj/main.o: src/main.cpp inc/AbstractInterp4Command.hh inc/AbstractScene.hh\
             inc/AbstractComChannel.hh inc/ProgramInterpreter.hh inc/LibInterface.hh
@@ -41,6 +41,9 @@ obj/xmlinterp.o: src/xmlinterp.cpp inc/xmlinterp.hh
 
 obj/xmlParser.o: src/xmlParser.cpp inc/xmlParser.hh
 	g++ -c ${CPPFLAGS} -o obj/xmlParser.o src/xmlParser.cpp
+
+obj/ComChannel.o: src/ComChannel.cpp inc/ComChannel.hh
+	g++ -c ${CPPFLAGS} -o obj/ComChannel.o src/ComChannel.cpp
 
 doc:
 	cd dox; make
