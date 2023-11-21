@@ -3,17 +3,19 @@
 #include <memory>
 #include <vector>
 #include <cstdio> 
+#include <list>
 
 #define MAX_CHAR_COUNT 1000
 
-ProgramInterpreter::ProgramInterpreter()
+ProgramInterpreter::ProgramInterpreter(const Configuration& conf)
 {
-  std::vector<std::string> DLibNames = {
+  /*std::vector<std::string> DLibNames = {
     "libInterp4Move.so", 
     "libInterp4Set.so",
     "libInterp4Rotate.so", 
     "libInterp4Pause.so"
-  };
+  };*/
+  std::list<std::string> DLibNames = conf.getLibsNamesList();
   for(std::string DLibName : DLibNames){
     std::shared_ptr<LibInterface> libInterface(new LibInterface(DLibName));
     if(libInterface->IsOpen())

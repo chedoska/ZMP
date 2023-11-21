@@ -10,17 +10,8 @@ using namespace std;
 
 int main()
 {
-  Vector3D vec, df;
-  vec[0] = 13;
-  df[0] = 12;
-  df[1] = 5;
-  vec = vec + df;
-  std::cout << vec << "\n";
-
-
   Configuration Config;
    if (!ReadFile("config/config.xml",Config)) return 1;
-
 
     std::cout << "LISTA BIBLIOTEK:\n";
     std::list<std::string> lista = Config.getLibsNamesList();
@@ -32,7 +23,7 @@ int main()
 
 
   ProgramInterpreter programInterpreter;
-  if(!programInterpreter.ExecProgram("/home/chedoska/Pulpit/opis_dzialan.cmd")){
+  if(!programInterpreter.ExecProgram("/home/schedosk/Pulpit/opis_dzialan.cmd")){
     std::cout << "BŁĄD: Koniec programu!\n\n\n";
   }
   else{

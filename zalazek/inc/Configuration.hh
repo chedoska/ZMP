@@ -26,7 +26,7 @@ class Configuration {
 public:
   void addLibName(std::string libName) {m_libsNames.push_back(libName);}
   void addCubeConfiguration(CubeConfiguration cubeConfiguration) {m_cubeConfigs.push_back(cubeConfiguration);}
-  std::list<std::string> getLibsNamesList() {return m_libsNames;}
+  std::list<std::string> getLibsNamesList() const {return m_libsNames;}
   std::list<CubeConfiguration> getCubeConfigurationsList() {return m_cubeConfigs;}
 
 private:
