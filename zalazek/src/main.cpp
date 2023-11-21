@@ -15,7 +15,7 @@ int main()
 
     std::cout << "LISTA BIBLIOTEK:\n";
     std::list<std::string> lista = Config.getLibsNamesList();
-    for(std::string name : lista) std::cout << name << "\n";
+    for(std::string name : lista) std::cout << name << " " << name.length() << "\n";
 
     std::cout << "LISTA CUBE:\n";
     std::list<CubeConfiguration> lista2 = Config.getCubeConfigurationsList();

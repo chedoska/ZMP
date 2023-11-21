@@ -14,7 +14,7 @@ typedef std::map<std::string,std::shared_ptr<LibInterface>> LibManager;
 class ProgramInterpreter
 {
 public:
-    ProgramInterpreter(const Configuration& conf);
+    ProgramInterpreter(Configuration& conf);
     bool ExecProgram(const char* fileName);
 
 private:
