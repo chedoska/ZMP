@@ -26,8 +26,8 @@ public:
     virtual int GetSocket() const;
     virtual void LockAccess();
     virtual void UnlockAccess();
-    //std::mutex &UseGuard();
-    ~ComChannel();
+    std::mutex &UseGuard();
+    virtual ~ComChannel();
 
 private:
     int Socket4Sending;

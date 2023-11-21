@@ -21,10 +21,11 @@ void ComChannel::UnlockAccess()
 
 };
 
-/*std::mutex& ComChannel::UseGuard()
+std::mutex& ComChannel::UseGuard()
 {
-
-};*/
+  std::mutex m;
+  return m;
+};
 
 ComChannel::~ComChannel()
 {
