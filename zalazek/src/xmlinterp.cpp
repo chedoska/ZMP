@@ -78,12 +78,24 @@ void XMLInterp4Config::ProcessCubeAttrs(const xercesc::Attributes  &rAttrs)
    istringstream IStrm;
    IStrm.str(sValue);
    if (std::string(sName) == "Name"){
-     cubeConf.Name = sName; 
+     cubeConf.Name = sValue; 
    }
    else if (std::string(sName) == "Scale"){
      IStrm >> cubeConf.Scale;
    }
-
+   else if (std::string(sName) == "Shift"){
+     IStrm >> cubeConf.Shift;
+   }
+   else if (std::string(sName) == "RotXYZ_deg"){
+     IStrm >> cubeConf.RotXYZ_deg;
+   }
+   else if (std::string(sName) == "Trans_m"){
+     IStrm >> cubeConf.Trans_m;
+   }
+   else if (std::string(sName) == "RGB"){
+     IStrm >> cubeConf.RGB;
+   }
+   
    xercesc::XMLString::release(&sName);
    xercesc::XMLString::release(&sValue);
  }
