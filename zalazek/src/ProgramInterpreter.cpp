@@ -7,7 +7,7 @@
 
 #define MAX_CHAR_COUNT 1000
 
-ProgramInterpreter::ProgramInterpreter(Configuration& conf)
+ProgramInterpreter::ProgramInterpreter()
 {
   std::list<std::string> DLibNames = conf.getLibsNamesList();
   for(std::string DLibName : DLibNames){
@@ -57,5 +57,20 @@ bool ProgramInterpreter::ExecProgram(const char* fileName)
       return false;
     }
   }
+  return true;
+}
+
+bool ProgramInterpreter::Read_XML_Config(const char* fileName)
+{
+  if (!ReadFile(fileName,conf)) return false;
+
+  std::cout << "LISTA BIBLIOTEK:\n";
+  std::list<std::string> lista = conf.getLibsNamesList();
+  for(std::string name : lista) std::cout << name << " " << name.length() << "\n";
+
+  std::cout << "LISTA CUBE:\n";
+  std::list<CubeConfiguration> lista2 = conf.getCubeConfigurationsList();
+  for(CubeConfiguration name : lista2) name.printAllParams();
+
   return true;
 }
