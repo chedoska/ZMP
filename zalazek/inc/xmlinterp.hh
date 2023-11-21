@@ -12,7 +12,7 @@
 
 //XERCES_CPP_NAMESPACE_USE
 
-#include "Configuration.hh"
+//#include "Configuration.hh"
 
 
 /*!
