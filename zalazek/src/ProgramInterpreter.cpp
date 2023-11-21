@@ -57,6 +57,7 @@ bool ProgramInterpreter::ExecProgram(const char* fileName)
 
 bool ProgramInterpreter::Read_XML_Config(const char* fileName)
 {
+  Configuration conf;
   if (!ReadFile(fileName,conf)) return false;
 
   std::cout << "LISTA BIBLIOTEK:\n";
@@ -67,12 +68,12 @@ bool ProgramInterpreter::Read_XML_Config(const char* fileName)
   std::list<CubeConfiguration> lista2 = conf.getCubeConfigurationsList();
   for(CubeConfiguration name : lista2) name.printAllParams();
 
-  LoadLibraries();
+  LoadLibraries(conf);
 
   return true;
 }
 
-void ProgramInterpreter::LoadLibraries()
+void ProgramInterpreter::LoadLibraries(Configuration &conf)
 {
   std::list<std::string> DLibNames = conf.getLibsNamesList();
   for(std::string DLibName : DLibNames){
