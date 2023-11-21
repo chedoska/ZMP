@@ -21,6 +21,8 @@ public:
     bool Read_XML_Config(const char* fileName);
 
 private:
+    void LoadLibraries();
+
     LibManager Set4LibInterfaces;
     // Scene...
     ComChannel comChannel;

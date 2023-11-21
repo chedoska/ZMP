@@ -9,12 +9,7 @@
 
 ProgramInterpreter::ProgramInterpreter()
 {
-  std::list<std::string> DLibNames = conf.getLibsNamesList();
-  for(std::string DLibName : DLibNames){
-    std::shared_ptr<LibInterface> libInterface(new LibInterface(DLibName));
-    if(libInterface->IsOpen())
-      Set4LibInterfaces[libInterface->GetCmdName()] = libInterface;
-  }
+  
 }
 
 bool ProgramInterpreter::ExecProgram(const char* fileName)
@@ -72,5 +67,17 @@ bool ProgramInterpreter::Read_XML_Config(const char* fileName)
   std::list<CubeConfiguration> lista2 = conf.getCubeConfigurationsList();
   for(CubeConfiguration name : lista2) name.printAllParams();
 
+  LoadLibraries();
+
   return true;
+}
+
+void ProgramInterpreter::LoadLibraries()
+{
+  std::list<std::string> DLibNames = conf.getLibsNamesList();
+  for(std::string DLibName : DLibNames){
+    std::shared_ptr<LibInterface> libInterface(new LibInterface(DLibName));
+    if(libInterface->IsOpen())
+      Set4LibInterfaces[libInterface->GetCmdName()] = libInterface;
+  }
 }
