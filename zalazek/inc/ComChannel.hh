@@ -16,7 +16,7 @@
 
 #define PORT  6217
 
-class ComChannel : public AbstractComChannel
+class ComChannel
 {
 public:
     bool OpenConnection();
