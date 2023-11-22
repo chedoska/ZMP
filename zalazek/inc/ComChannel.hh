@@ -1,6 +1,8 @@
 #ifndef COMCHANNEL_HH
 #define COMCHANNEL_HH
 
+#include "AbstractComChannel.hh"
+
 #include <iomanip>
 #include <cstring>
 #include <sys/types.h>
@@ -11,8 +13,6 @@
 #include <thread>
 #include <mutex>
 #include <vector>
-
-#include "AbstractComChannel.hh"
 
 #define PORT  6217
 
