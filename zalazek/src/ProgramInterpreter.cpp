@@ -60,7 +60,7 @@ bool ProgramInterpreter::Read_XML_Config(const char* fileName)
   Configuration conf;
   if (!ReadFile(fileName,conf)) return false;
 
-  std::cout << "Lista bibliotek do zaladowania:\n";
+  std::cout << "\nLista bibliotek do zaladowania:\n";
   std::list<std::string> lista = conf.getLibsNamesList();
   for(std::string name : lista) std::cout << name << "\n";
   std::cout << "\n";
