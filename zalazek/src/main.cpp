@@ -10,9 +10,14 @@ using namespace std;
 int main()
 {
   ProgramInterpreter programInterpreter;
-  programInterpreter.Read_XML_Config("config/config.xml");
+
+  if(!programInterpreter.Read_XML_Config("config/config.xml")){
+    std::cout << "BŁĄD czytania pliku XML: Koniec programu!\n\n\n";
+    return 1;
+  }
+
   if(!programInterpreter.ExecProgram("/home/schedosk/Pulpit/opis_dzialan.cmd")){
-    std::cout << "BŁĄD: Koniec programu!\n\n\n";
+    std::cout << "BŁĄD wykonywania poleceń: Koniec programu!\n\n\n";
   }
   else{
     std::cout << "Program zadziałał poprawnie!\n\n\n";

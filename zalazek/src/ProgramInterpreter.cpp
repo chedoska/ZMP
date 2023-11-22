@@ -62,10 +62,10 @@ bool ProgramInterpreter::Read_XML_Config(const char* fileName)
 
   std::cout << "Lista bibliotek do zaladowania:\n";
   std::list<std::string> lista = conf.getLibsNamesList();
-  for(std::string name : lista) std::cout << name << " " << name.length() << "\n";
+  for(std::string name : lista) std::cout << name << "\n";
   std::cout << "\n";
 
-  std::cout << "Lista konfiguracji prostopadloscianow:\n";
+  std::cout << "Lista wstepnych konfiguracji prostopadloscianow:\n";
   std::list<CubeConfiguration> lista2 = conf.getCubeConfigurationsList();
   for(CubeConfiguration name : lista2) name.printAllParams();
   std::cout << "\n";
