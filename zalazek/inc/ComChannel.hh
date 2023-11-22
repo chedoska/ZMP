@@ -22,12 +22,12 @@ public:
     bool OpenConnection();
     int Send(const char *sMesg);
 
-    virtual void Init(int Socket);
-    virtual int GetSocket() const;
-    virtual void LockAccess();
-    virtual void UnlockAccess();
+    void Init(int Socket);
+    int GetSocket() const;
+    void LockAccess();
+    void UnlockAccess();
     std::mutex &UseGuard();
-    virtual ~ComChannel();
+    ~ComChannel();
 
 private:
     int Socket4Sending;
