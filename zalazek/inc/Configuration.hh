@@ -32,28 +32,28 @@ private:
 
 
 
-void CubeConfiguration::printAllParams()
+inline void CubeConfiguration::printAllParams()
 {
   std::cout << Name << ": " << Shift << " " << Scale << " " << RotXYZ_deg << " "
     << Trans_m << " " << RGB << "\n";
 }
 
-void Configuration::addLibName(std::string libName)
+inline void Configuration::addLibName(std::string libName)
 {
   m_libsNames.push_back(libName);
 }
 
-void Configuration::addCubeConfiguration(CubeConfiguration cubeConfiguration)
+inline void Configuration::addCubeConfiguration(CubeConfiguration cubeConfiguration)
 {
   m_cubeConfigs.push_back(cubeConfiguration);
 }
 
-std::list<std::string> Configuration::getLibsNamesList() 
+inline std::list<std::string> Configuration::getLibsNamesList() 
 {
   return m_libsNames;
 }
 
-std::list<CubeConfiguration> Configuration::getCubeConfigurationsList() 
+inline std::list<CubeConfiguration> Configuration::getCubeConfigurationsList() 
 {
   return m_cubeConfigs;
 }
