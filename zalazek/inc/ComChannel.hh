@@ -16,12 +16,13 @@
 
 #define PORT  6217
 
-class ComChannel
+class ComChannel : public AbstractComChannel
 {
 public:
     bool OpenConnection();
     int Send(const char *sMesg);
 
+    ComChannel() {}
     void Init(int Socket);
     int GetSocket() const;
     void LockAccess();
