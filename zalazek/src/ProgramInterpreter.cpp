@@ -60,13 +60,15 @@ bool ProgramInterpreter::Read_XML_Config(const char* fileName)
   Configuration conf;
   if (!ReadFile(fileName,conf)) return false;
 
-  std::cout << "LISTA BIBLIOTEK:\n";
+  std::cout << "Lista bibliotek do zaladowania:\n";
   std::list<std::string> lista = conf.getLibsNamesList();
   for(std::string name : lista) std::cout << name << " " << name.length() << "\n";
+  std::cout << "\n";
 
-  std::cout << "LISTA CUBE:\n";
+  std::cout << "Lista konfiguracji prostopadloscianow:\n";
   std::list<CubeConfiguration> lista2 = conf.getCubeConfigurationsList();
   for(CubeConfiguration name : lista2) name.printAllParams();
+  std::cout << "\n";
 
   LoadLibraries(conf);
   LoadCubeConfiguration(conf);
