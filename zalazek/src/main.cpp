@@ -20,12 +20,12 @@ int main(int argc, char **argv)
     return 1;
   }
 
-  if(!programInterpreter.Read_XML_Config(argv[1])){
+  if(!programInterpreter.Read_XML_Config(argv[2])){
     std::cout << "BŁĄD czytania pliku XML: Koniec programu!\n\n\n";
     return 1;
   }
 
-  if(!programInterpreter.ExecProgram(argv[0])){
+  if(!programInterpreter.ExecProgram(argv[1])){
     std::cout << "BŁĄD wykonywania poleceń: Koniec programu!\n\n\n";
   }
   else{
