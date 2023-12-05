@@ -8,19 +8,6 @@
 
 #define MAX_CHAR_COUNT 1000
 
-std::vector<AbstractInterp4Command*> polecenia;
-
-void do1(Scene &scene, ComChannel &comChannel)
-{
-  polecenia[0]->ExecCmd(scene,comChannel);
-}
-
-void do2(Scene &scene, ComChannel &comChannel)
-{
-  //polecenia[1]->ExecCmd(scene,comChannel);
-}
-
-
 ProgramInterpreter::ProgramInterpreter()
 {
   std::cout << "Łączenie z serwerem\n";
@@ -59,8 +46,6 @@ void ProgramInterpreter::Read(std::stringstream& str)
         std::cout << "Zinterpretowane polecenie: ";
         pCmd->PrintCmd();
         std::cout << "\n";
-        //pCmd->ExecCmd(scene, comChannel);
-        //polecenia.push_back(pCmd);
         std::thread thExec(&AbstractInterp4Command::ExecCmd, pCmd, std::ref(scene), std::ref(comChannel));
         currentThreads.push_back(std::move(thExec));
       }
@@ -117,14 +102,6 @@ bool ProgramInterpreter::ExecProgram(const char* fileName)
       return false;
     }
   }
-
-  std::thread th1(do1,std::ref(scene),std::ref(comChannel));
-  //std::thread th2(do2,std::ref(scene),std::ref(comChannel));
-
-  //polecenia[1]->ExecCmd(scene,comChannel);
-
-  th1.join();
-  //th2.join();
 
   return true;
 }

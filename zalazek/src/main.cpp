@@ -7,16 +7,25 @@
 
 using namespace std;
 
-int main()
+int main(int argc, char **argv)
 {
   ProgramInterpreter programInterpreter;
 
-  if(!programInterpreter.Read_XML_Config("config/config.xml")){
+  //path =  /home/schedosk/Pulpit/opis_dzialan.cmd
+  //path =  config/config.xml
+
+  if(argc < 3)
+  {
+    std::cout << "Brak śćieżek plików .cmd i .xml\n\n\n";
+    return 1;
+  }
+
+  if(!programInterpreter.Read_XML_Config(argv[1])){
     std::cout << "BŁĄD czytania pliku XML: Koniec programu!\n\n\n";
     return 1;
   }
 
-  if(!programInterpreter.ExecProgram("/home/schedosk/Pulpit/opis_dzialan.cmd")){
+  if(!programInterpreter.ExecProgram(argv[0])){
     std::cout << "BŁĄD wykonywania poleceń: Koniec programu!\n\n\n";
   }
   else{
