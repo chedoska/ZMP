@@ -89,7 +89,6 @@ bool ProgramInterpreter::ExecProgram(const char* fileName)
         pCmd->PrintCmd();
         std::cout << "\n";
         //pCmd->ExecCmd(scene, comChannel);
-        polecenia.push_back(pCmd);
       }
       else{
         std::cout << "Błedne parametry do polecenia: "
