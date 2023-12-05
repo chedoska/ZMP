@@ -53,7 +53,6 @@
       * \retval false - w przypadku przeciwnym.
       */
      virtual bool ExecCmd(AbstractScene      &rScn, 
-                          const char         *sMobObjName,
                           AbstractComChannel &rComChann) = 0;
      /*!
       * \brief Czyta wartości parametrów danego polecenia.

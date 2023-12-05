@@ -4,33 +4,32 @@
 void ComChannel::Init(int Socket)
 {
     Socket4Sending = Socket;
-};
+}
 
 int ComChannel::GetSocket() const
 {
     return Socket4Sending;
-};
+}
 
 void ComChannel::LockAccess()
 {
-
-};
+  m_mutex.lock();
+}
 
 void ComChannel::UnlockAccess()
 {
-
-};
+  m_mutex.unlock();
+}
 
 std::mutex& ComChannel::UseGuard()
 {
-  std::mutex m;
-  return m;
-};
+  return m_mutex;
+}
 
 ComChannel::~ComChannel()
 {
   close(Socket4Sending);
-};
+}
 
 bool ComChannel::OpenConnection()
 {
@@ -60,6 +59,11 @@ bool ComChannel::OpenConnection()
 
 int ComChannel::Send(const char *sMesg)
 {
+  if (Socket4Sending < 0) {
+     std::cerr << "*** Gniazdo zostało zamknięte - Blad wysylania." << std::endl;
+     return false;
+  }
+
   ssize_t  IlWyslanych;
   ssize_t  IlDoWyslania = (ssize_t) strlen(sMesg);
 
@@ -71,4 +75,9 @@ int ComChannel::Send(const char *sMesg)
     std::cerr << "*** Blad przeslania napisu." << std::endl;
   }
   return 0;
+}
+
+void ComChannel::CloseConnection()
+{
+  Send("Close\n");
 }

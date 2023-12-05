@@ -20,11 +20,15 @@ CPPFLAGS=-Wall -pedantic -std=c++17 -Iinc
 LDFLAGS=-Wall
 
 
+#interp: obj/main.o obj/ProgramInterpreter.o obj/LibInterface.o obj/ComChannel.o obj/Scene.o\
+	 obj/MobileObj.o
+#	g++ ${LDFLAGS} -o interp  obj/main.o obj/ProgramInterpreter.o obj/LibInterface.o obj/ComChannel.o\
+	 obj/Scene.o obj/MobileObj.o -ldl -lpthread
 
-
-interp: obj/main.o obj/ProgramInterpreter.o obj/LibInterface.o obj/xmlinterp.o obj/xmlParser.o obj/ComChannel.o
+interp: obj/main.o obj/ProgramInterpreter.o obj/LibInterface.o obj/xmlinterp.o obj/xmlParser.o obj/ComChannel.o\
+	 obj/Scene.o obj/MobileObj.o
 	g++ ${LDFLAGS} -o interp  obj/main.o obj/ProgramInterpreter.o obj/LibInterface.o obj/ComChannel.o\
-	 obj/xmlinterp.o obj/xmlParser.o -ldl -lxerces-c 
+	 obj/MobileObj.o obj/Scene.o obj/xmlinterp.o obj/xmlParser.o -ldl -lxerces-c -lpthread
 
 obj/main.o: src/main.cpp inc/AbstractInterp4Command.hh inc/AbstractScene.hh\
             inc/AbstractComChannel.hh inc/ProgramInterpreter.hh inc/LibInterface.hh
@@ -44,6 +48,12 @@ obj/xmlParser.o: src/xmlParser.cpp inc/xmlParser.hh
 
 obj/ComChannel.o: src/ComChannel.cpp inc/ComChannel.hh
 	g++ -c ${CPPFLAGS} -o obj/ComChannel.o src/ComChannel.cpp
+
+obj/Scene.o: src/Scene.cpp inc/Scene.hh
+	g++ -c ${CPPFLAGS} -o obj/Scene.o src/Scene.cpp
+
+obj/MobileObj.o: src/MobileObj.cpp inc/MobileObj.hh	
+	g++ -c ${CPPFLAGS} -o obj/MobileObj.o src/MobileObj.cpp
 
 doc:
 	cd dox; make

@@ -20,6 +20,7 @@ class ComChannel : public AbstractComChannel
 {
 public:
     bool OpenConnection();
+    void CloseConnection();
     int Send(const char *sMesg);
 
     ComChannel() {}
@@ -32,6 +33,7 @@ public:
 
 private:
     int Socket4Sending;
+    std::mutex m_mutex;
 };
 
 #endif

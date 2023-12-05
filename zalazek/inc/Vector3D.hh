@@ -19,4 +19,13 @@
      is >> vec[0] >> vec[1] >> vec[2];
      return is;
  }
+
+ inline Vector3D createVector3D(double x, double y, double z)
+ {
+     Vector3D vec;
+     vec[0] = x;
+     vec[1] = y;
+     vec[2] = z;
+     return vec;
+ }
 #endif

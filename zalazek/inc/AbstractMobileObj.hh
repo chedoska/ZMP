@@ -11,6 +11,7 @@
  */
 
 #include "Vector3D.hh"
+#include <mutex>
 
    /*!
     * \brief Definiuje interfejs dla obiektów mobilnych.
@@ -101,6 +102,8 @@
         *  \return Nazwa obiektu.
         */
         virtual const std::string & GetName() const = 0;
+
+        virtual std::mutex &UseGuard() = 0;
     };
 
 

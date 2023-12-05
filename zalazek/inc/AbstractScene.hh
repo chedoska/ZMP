@@ -1,7 +1,6 @@
 #ifndef ABSTRACTSCENE_HH
 #define ABSTRACTSCENE_HH
 
-
 #include "AbstractMobileObj.hh"
 
 /*!

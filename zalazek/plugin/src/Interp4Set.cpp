@@ -1,5 +1,8 @@
 #include <iostream>
 #include "Interp4Set.hh"
+#include "AbstractMobileObj.hh"
+#include <string>
+#include <sstream>
 
 using std::cout;
 using std::endl;
@@ -47,13 +50,32 @@ const char* Interp4Set::GetCmdName() const
  *
  */
 bool Interp4Set::ExecCmd( AbstractScene      &rScn, 
-                           const char         *sMobObjName,
 			   AbstractComChannel &rComChann
 			 )
 {
-  /*
-   *  Tu trzeba napisać odpowiedni kod.
-   */
+  AbstractMobileObj *pObj = rScn.FindMobileObj(_ObjectName.c_str());
+  if(pObj == nullptr)
+  {
+    std::cout << "Nie znaleziono obiektu na scenie: " << _ObjectName << "\n";
+    return false;
+  }
+  {
+    std::lock_guard<std::mutex> Guard(pObj->UseGuard());
+    pObj->SetPosition_m(createVector3D(_X, _Y, _Z));
+    pObj->SetAng_Roll_deg(_or_X);
+    pObj->SetAng_Yaw_deg(_or_Z);
+    pObj->SetAng_Pitch_deg(_or_Y);
+
+    Vector3D rotVec = createVector3D(_or_X, _or_Y, _or_Z);
+
+    std::stringstream ss;
+    ss << "UpdateObj Name=" << _ObjectName
+       << " RotXYZ_deg=" << rotVec
+       << " Trans_m=" << pObj->GetPositoin_m() << "\n";
+    rComChann.LockAccess();
+    rComChann.Send(ss.str().c_str());
+    rComChann.UnlockAccess();
+  }
   return true;
 }
 
