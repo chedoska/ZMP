@@ -32,6 +32,12 @@ private:
 
 
 
+
+
+
+
+
+
 inline void CubeConfiguration::printAllParams()
 {
   std::cout << Name << ": " << Shift << " " << Scale << " " << RotXYZ_deg << " "

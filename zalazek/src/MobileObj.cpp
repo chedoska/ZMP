@@ -2,7 +2,6 @@
 
 MobileObj::~MobileObj()
 {
-    std::cout << "DEstructor called\n";
 }
 
 double MobileObj::GetAng_Roll_deg() const
