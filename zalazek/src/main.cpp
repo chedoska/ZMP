@@ -16,7 +16,7 @@ int main()
     return 1;
   }
 
-  if(!programInterpreter.ExecProgram("/home/chedoska/Pulpit/opis_dzialan.cmd")){
+  if(!programInterpreter.ExecProgram("/home/schedosk/Pulpit/opis_dzialan.cmd")){
     std::cout << "BŁĄD wykonywania poleceń: Koniec programu!\n\n\n";
   }
   else{

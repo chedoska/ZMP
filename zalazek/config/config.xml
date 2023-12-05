@@ -6,12 +6,51 @@
       <Lib Name="libInterp4Set.so"/>
    </Plugins>
    <Objects>
-     <Cube Name="Podstawa" Shift="0 -0.5 0" Scale="0.7 0.7 0.2"
-                 RotXYZ_deg="10 0 0" Trans_m="0.1 0 0" RGB="0 0 255"/>
-     <Cube Name="Podstawa.Ramie1" Shift="0 -0.5 0" Scale="0.1 0.1 0.6"
-	                                                 Trans_m="0 0.7 0"/>
-     <Cube Name="Podstawa.Ramie1.Ramie2" Shift="0 -0.5 0"
-	         Scale="0.1 0.1 0.6" Trans_m="0 0.7 0"/>
+     <Cube Name="c" Shift="0 0 0" Scale="3 4 0.5"
+           RotXYZ_deg="0 0 0" Trans_m="0 0 0" RGB="214 161 13"/>
+     
+     <Cube Name="c.korpus" Shift="0 0 0" Scale="4 4 0.4"
+           RotXYZ_deg="0 0 0" Trans_m="0 0 0.25" RGB="252 186 3"/>
+     <Cube Name="c.gasienica1" Shift="0 0 0" Scale="4 1.5 1"
+           RotXYZ_deg="0 0 0" Trans_m="0.7 -1.5 -0.8" RGB="30 30 30"/>
+     <Cube Name="c.gasienica2" Shift="0 0 0" Scale="4 1.5 1"
+           RotXYZ_deg="0 0 0" Trans_m="0.7 1.5 -0.8" RGB="30 30 30"/>
+     <Cube Name="c.korpus.kor2" Shift="0 0 0" Scale="2 4 1"
+           RotXYZ_deg="0 0 0" Trans_m="-1 0 0.6" RGB="214 161 13"/>
+     <Cube Name="c.korpus.slup1" Shift="0 0 0" Scale="0.2 0.2 1.7"
+           RotXYZ_deg="0 0 0" Trans_m="1.6 1.6 1" RGB="0 0 0"/>
+     <Cube Name="c.korpus.slup2" Shift="0 0 0" Scale="0.2 0.2 1.7"
+           RotXYZ_deg="0 0 0" Trans_m="0.3 1.6 1" RGB="0 0 0"/>
+     <Cube Name="c.korpus.slup3" Shift="0 0 0" Scale="0.2 0.2 1.7"
+           RotXYZ_deg="0 0 0" Trans_m="1.6 0.5 1" RGB="0 0 0"/>
+     <Cube Name="c.korpus.slup4" Shift="0 0 0" Scale="0.2 0.2 1.7"
+           RotXYZ_deg="0 0 0" Trans_m="0.3 0.5 1" RGB="0 0 0"/>
+     <Cube Name="c.korpus.dach" Shift="0 0 0" Scale="1.8 1.4 0.2"
+           RotXYZ_deg="0 0 0" Trans_m="0.95 1.05 2" RGB="0 0 0"/>
+     <Cube Name="c.korpus.uchw" Shift="0 0 0" Scale="1 1.3 1"
+           RotXYZ_deg="0 0 0" Trans_m="1 -1 0.2" RGB="80 60 20"/>
+
+     <Cube Name="c.korpus.ramie1" Shift="0.5 0 0" Scale="6 0.8 0.5"
+           RotXYZ_deg="0 -65 0" Trans_m="1 -1 0.3" RGB="214 161 13"/>
+     <Cube Name="c.korpus.ramie1.ramie2" Shift="0.5 0 0" Scale="4.5 0.8 0.5"
+           RotXYZ_deg="0 70 0" Trans_m="6 0 0" RGB="214 161 13"/>
+     <Cube Name="c.korpus.ramie1.ramie2.lycha" Shift="0.5 0 0" Scale="1 3.5 0.3"
+           RotXYZ_deg="0 10 0" Trans_m="4.5 0 0" RGB="0 0 0"/>
+     <Cube Name="c.korpus.ramie1.ramie2.lycha.lycha2" Shift="0.5 0 0" Scale="0.5 3.5 0.3"
+           RotXYZ_deg="0 0 0" Trans_m="0 0 0.25" RGB="0 0 0"/>
+
+     <Cube Name="ziemia1" Shift="0 0 0.5" Scale="6 6 0.5"
+           RotXYZ_deg="0 0 0" Trans_m="0 -8 0" RGB="102 105 122"/>
+      <Cube Name="ziemia1.ziemia2" Shift="0 0 0.5" Scale="4.5 4.5 0.5"
+            RotXYZ_deg="0 0 0" Trans_m="0 0 0.5" RGB="80 85 100"/>
+       <Cube Name="ziemia1.ziemia2.ziemia3" Shift="0 0 0.5" Scale="2.5 2.5 0.5"
+             RotXYZ_deg="0 0 0" Trans_m="0 0 0.5" RGB="60 65 80"/>
+        <Cube Name="ziemia1.ziemia2.ziemia3.zm4" Shift="0 0 0.5" Scale="1 1 0.5"
+              RotXYZ_deg="0 0 0" Trans_m="0 0 0.5" RGB="40 45 60"/>
+
+	 <Cube Name="c.korpus.ramie1.ramie2.lycha.obk" Shift="0 0 0" Scale="0.7 3 0.2"
+            RotXYZ_deg="0 0 0" Trans_m="0.5 0 -0.0" RGB="80 85 100"/>
+         
    </Objects>
   </Config>
   
