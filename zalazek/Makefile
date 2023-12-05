@@ -1,5 +1,6 @@
 __start__: obj __lines_for_space__ interp __plugin__
-	export LD_LIBRARY_PATH="./libs"; ./interp 
+	export LD_LIBRARY_PATH="./libs"; ./interp\
+ /home/schedosk/Pulpit/opis_dzialan.cmd config/config.xml
 
 obj:
 	mkdir obj
