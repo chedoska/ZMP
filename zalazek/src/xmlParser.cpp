@@ -28,11 +28,16 @@ bool ReadFile(const char* sFileName, Configuration &rConfig)
    pParser->setContentHandler(pHandler);
    pParser->setErrorHandler(pHandler);
 
+     std::string XSDfilName = sFileName;
+     int len = XSDfilName.length();
+     XSDfilName[len-2] = 's';
+     XSDfilName[len-1] = 'd';
+
    try {
      
-     if (!pParser->loadGrammar("config/config.xsd",
+     if (!pParser->loadGrammar(XSDfilName.c_str(),
                               xercesc::Grammar::SchemaGrammarType,true)) {
-       std::cerr << "!!! Plik grammar/actions.xsd, '" << std::endl
+       std::cerr << "!!! Plik .xsd, '" << std::endl
             << "!!! ktory zawiera opis gramatyki, nie moze zostac wczytany."
             << std::endl;
        return false;

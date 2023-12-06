@@ -32,8 +32,6 @@ void ProgramInterpreter::Read(std::stringstream& str)
   {
     if(LineString == "Begin_Parallel_Actions"){
       std::cout << "Nowy wątek sekcji\n\n";
-      //std::thread th(&ProgramInterpreter::Read, this, std::ref(str));
-      //th.join(); 
       Read(str);
       std::cout << "Połączenie wątka sekcji\n\n"; 
     }
